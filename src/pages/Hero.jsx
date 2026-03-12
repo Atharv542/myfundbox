@@ -62,7 +62,7 @@ const Hero = () => {
 
               <button
                 onClick={() => scrollTo("#services")}
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-green-700 to-green-500 text-white font-semibold text-base shadow-lg hover:opacity-90 active:scale-95 transition-all duration-200"
+                className="flex cursor-pointer items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-green-700 to-green-500 text-white font-semibold text-base shadow-lg hover:opacity-90 active:scale-95 transition-all duration-200"
               >
                 Explore Services
                 <ArrowRight className="w-4 h-4" />
@@ -70,7 +70,7 @@ const Hero = () => {
 
               <button
                 onClick={() => scrollTo("#contact")}
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-orange-500 text-white font-semibold text-base shadow-lg hover:opacity-90 active:scale-95 transition-all duration-200"
+                className="flex cursor-pointer items-center justify-center gap-2 px-8 py-4 rounded-xl bg-orange-500 text-white font-semibold text-base shadow-lg hover:opacity-90 active:scale-95 transition-all duration-200"
               >
                 Talk to an Expert
               </button>

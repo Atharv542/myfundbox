@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, TrendingUp } from "lucide-react";
-
+import logo from '../assets/logo.png'
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
@@ -40,11 +40,11 @@ const Navbar = () => {
           {/* Logo */}
           <button
             onClick={() => scrollTo("#home")}
-            className="flex items-center gap-2 group"
+            className="flex cursor-pointer items-center gap-2 group"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-r from-green-700 to-green-500 flex items-center justify-center shadow-md">
-              <TrendingUp className="w-5 h-5 text-white" />
-            </div>
+        
+              <img src={logo} className="w-9 h-9"/>
+            
 
             <div className="flex flex-col leading-none">
               <span className="font-bold text-xl text-green-700 tracking-tight">
@@ -63,9 +63,9 @@ const Navbar = () => {
               <button
                 key={link.label}
                 onClick={() => scrollTo(link.href)}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-700 rounded-md transition-colors duration-200"
+                className="px-4 cursor-pointer py-2 text-sm font-medium text-gray-700 hover:text-green-700 rounded-md transition-colors duration-200"
               >
-                {link.label}
+                {link.label} 
               </button>
             ))}
           </div>
