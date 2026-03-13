@@ -8,7 +8,7 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
-
+import logo from '../assets/logo.png'
 const quickLinks = ["Home", "About Us", "Services", "Why Us", "Our Team", "Contact"];
 
 const services = [
@@ -47,9 +47,7 @@ const Footer = () => {
           <div>
 
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-green-700 flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
+              <img src={logo} className="w-9 h-9"/>
 
               <div>
                 <div className="font-bold text-xl tracking-tight">
