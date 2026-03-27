@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
-import { Menu, X, TrendingUp } from "lucide-react";
-import logo from '../assets/logo.png'
+import { Menu, X } from "lucide-react";
+
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "About", id: "about" },
+  { label: "Why Us", id: "why-us" },
+  { label: "Contact", id: "contact" },
 ];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,101 +19,106 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (href) => {
-    setIsOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  // 🔥 Smooth scroll function with offset
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    const offset = 90; // navbar height
+
+    if (element) {
+      const top =
+        element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+
+    setMobileOpen(false); // close mobile menu
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200"
-          : "bg-transparent"
+          ? "bg-white/80 backdrop-blur-md py-3 shadow-md"
+          : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-18 py-4">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4">
 
-          {/* Logo */}
-          <button
-            onClick={() => scrollTo("#home")}
-            className="flex cursor-pointer items-center gap-2 group"
-          >
-        
-              <img src={logo} className="w-9 h-9"/>
-            
-
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-xl text-green-700 tracking-tight">
-                my<span className="text-orange-500">fund</span>box
-              </span>
-
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest">
-                Financial Services
-              </span>
-            </div>
-          </button>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => scrollTo(link.href)}
-                className="px-4 cursor-pointer py-2 text-sm font-medium text-gray-700 hover:text-green-700 rounded-md transition-colors duration-200"
-              >
-                {link.label} 
-              </button>
-            ))}
+        {/* Logo */}
+        <button
+          onClick={() => handleScrollTo("home")}
+          className="flex items-center gap-2"
+        >
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 flex items-center justify-center">
+            <span className="font-bold text-white text-lg font-serif">M</span>
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-green-700 to-green-500 text-white text-sm font-semibold shadow-md hover:opacity-90 active:scale-95 transition-all duration-200"
-            >
-              Get Started
-            </button>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 rounded-md text-gray-900 hover:bg-gray-100 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+          <span
+            className={`font-bold text-xl transition-colors duration-300 font-serif ${
+              scrolled ? "text-gray-900" : "text-white"
+            }`}
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            MyFundbox
+          </span>
+        </button>
 
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-4 space-y-1 shadow-lg">
-
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
-              key={link.label}
-              onClick={() => scrollTo(link.href)}
-              className="block w-full text-left px-4 py-3 text-sm font-medium text-gray-700 hover:text-green-700 hover:bg-green-100 rounded-md transition-colors"
+              key={link.id}
+              onClick={() => handleScrollTo(link.id)}
+              className={`text-sm font-medium transition-colors duration-300 hover:text-yellow-500 ${
+                scrolled ? "text-gray-700" : "text-white/90"
+              }`}
             >
               {link.label}
             </button>
           ))}
 
-          <div className="pt-2">
+          <button
+            onClick={() => handleScrollTo("contact")}
+            className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition shadow-lg"
+          >
+            Book a Call
+          </button>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className={`md:hidden transition-colors ${
+            scrolled ? "text-gray-900" : "text-white"
+          }`}
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="md:hidden bg-white/90 backdrop-blur-md mt-2 mx-4 rounded-xl p-6 shadow-lg">
+          <div className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => handleScrollTo(link.id)}
+                className="text-gray-800 font-medium hover:text-yellow-500 transition-colors py-2 text-left"
+              >
+                {link.label}
+              </button>
+            ))}
+
             <button
-              onClick={() => scrollTo("#contact")}
-              className="w-full px-5 py-2.5 rounded-lg bg-gradient-to-r from-green-700 to-green-500 text-white text-sm font-semibold shadow-md"
+              onClick={() => handleScrollTo("contact")}
+              className="bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-5 py-3 rounded-lg text-sm font-semibold text-center mt-2"
             >
-              Get Started
+              Book a Call
             </button>
           </div>
-
         </div>
       )}
     </nav>

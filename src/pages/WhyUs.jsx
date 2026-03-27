@@ -1,112 +1,115 @@
-import { Award, Clock, Users, HeadphonesIcon, LineChart, Lock } from "lucide-react";
+import { Award, UserCheck, ShieldCheck, BarChart3 } from "lucide-react";
+import { useCountUp } from "../hooks/useCountUp";
+
+const stats = [
+  { label: "Clients Served", end: 1000, suffix: "+" },
+  { label: "Success Rate", end: 98, suffix: "%" },
+  { label: "Years Experience", end: 5, suffix: "+" },
+  { label: "Expert Advisors", end: 50, suffix: "+" },
+];
 
 const reasons = [
   {
     icon: Award,
-    title: "Award-Winning Advisory",
-    description: "Recognized by AMFI and CRISIL for excellence in financial advisory and client satisfaction.",
-    bg: "bg-green-100",
-    iconColor: "text-green-700",
+    title: "Expert Advisors",
+    description:
+      "Certified financial experts with deep market knowledge and years of experience.",
   },
   {
-    icon: Clock,
-    title: "Timely Market Insights",
-    description: "Weekly research reports, market analysis, and alerts to keep your portfolio ahead of the curve.",
-    bg: "bg-orange-100",
-    iconColor: "text-orange-500",
+    icon: UserCheck,
+    title: "Personalized Solutions",
+    description:
+      "Every plan is custom-built around your unique goals, risk appetite, and timeline.",
   },
   {
-    icon: Users,
-    title: "Client-First Approach",
-    description: "Every financial plan is 100% customized — no cookie-cutter advice. Your goals, our mission.",
-    bg: "bg-green-100",
-    iconColor: "text-green-700",
+    icon: ShieldCheck,
+    title: "Transparent Process",
+    description:
+      "No hidden fees, no surprises. Complete clarity in every step of your financial journey.",
   },
   {
-    icon: HeadphonesIcon,
-    title: "24/7 Support",
-    description: "Dedicated relationship managers and round-the-clock support for all your financial queries.",
-    bg: "bg-orange-100",
-    iconColor: "text-orange-500",
-  },
-  {
-    icon: LineChart,
-    title: "Proven Track Record",
-    description: "Consistent alpha generation over benchmark indices across 15+ years of market cycles.",
-    bg: "bg-green-100",
-    iconColor: "text-green-700",
-  },
-  {
-    icon: Lock,
-    title: "Bank-Grade Security",
-    description: "Your data and investments are protected with enterprise-grade encryption and regulatory oversight.",
-    bg: "bg-orange-100",
-    iconColor: "text-orange-500",
+    icon: BarChart3,
+    title: "Secure Investments",
+    description:
+      "We partner only with top-rated, SEBI-registered institutions for your safety.",
   },
 ];
 
-const WhyUs = () => {
+const StatItem = ({ label, end, suffix }) => {
+  const { count, ref } = useCountUp(end, 2000, suffix);
+
   return (
-    <section id="why-us" className="py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6">
+    <div ref={ref} className="text-center">
+      <div className="text-3xl md:text-4xl font-bold text-yellow-500 font-serif">
+        {count}
+      </div>
+      <div className="text-gray-400 text-sm mt-1">{label}</div>
+    </div>
+  );
+};
 
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+const WhyChooseUsSection = () => {
+  return (
+    <section id="why-us" className="py-24 bg-gray-100">
+      <div className="max-w-6xl mx-auto px-6">
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 border border-green-200 mb-4">
-            <span className="w-2 h-2 rounded-full bg-green-700" />
+        {/* Heading */}
+        <div className="text-center mb-16 scroll-animate">
+          <span className="text-yellow-500 font-semibold text-sm tracking-wider uppercase">
+            Why Choose Us
+          </span>
 
-            <span className="text-xs font-semibold text-green-700 uppercase tracking-widest">
-              Why Choose Us
-            </span>
-          </div>
-
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            The myfundbox{" "}
-            <span className="bg-gradient-to-r from-green-700 to-orange-500 bg-clip-text text-transparent">
-              Advantage
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4 font-serif">
+            Built on Trust & Excellence
           </h2>
 
-          <p className="text-gray-600 leading-relaxed">
-            We combine deep financial expertise with technology and human touch to
-            deliver outcomes that matter to you.
+          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            Thousands of families trust MyFundbox to secure their financial future. Here's why.
           </p>
-
         </div>
 
-        {/* Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Stats */}
+        <div
+          className="scroll-animate grid grid-cols-2 md:grid-cols-4 gap-8 bg-gray-900 rounded-2xl p-8 md:p-12 mb-16"
+          style={{ transitionDelay: "0.2s" }}
+        >
+          {stats.map((stat) => (
+            <StatItem key={stat.label} {...stat} />
+          ))}
+        </div>
 
-          {reasons.map((reason) => (
+        {/* Reasons */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {reasons.map((reason, index) => (
             <div
               key={reason.title}
-              className="group flex gap-5 bg-white p-7 rounded-2xl border border-gray-200 hover:border-green-300 hover:shadow-xl transition-all duration-300"
+              className="scroll-animate group text-center p-6 rounded-2xl border border-gray-200 hover:border-yellow-400 transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
-
-              <div className={`w-12 h-12 rounded-xl ${reason.bg} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                <reason.icon className={`w-6 h-6 ${reason.iconColor}`} />
+              {/* Icon */}
+              <div className="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mx-auto mb-5 group-hover:bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 transition-all duration-300">
+                <reason.icon
+                  size={26}
+                  className="text-yellow-500 group-hover:text-white transition-colors duration-300"
+                />
               </div>
 
-              <div>
+              {/* Title */}
+              <h3 className="text-lg font-bold text-gray-900 mb-2 font-serif">
+                {reason.title}
+              </h3>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {reason.title}
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {reason.description}
-                </p>
-
-              </div>
-
+              {/* Description */}
+              <p className="text-gray-600 text-sm leading-relaxed">
+                {reason.description}
+              </p>
             </div>
           ))}
-
         </div>
+
       </div>
     </section>
   );
 };
 
-export default WhyUs;
+export default WhyChooseUsSection;

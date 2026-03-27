@@ -1,34 +1,40 @@
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import AboutSection from "./pages/About";
+import ContactSection from "./pages/Contact";
 import Footer from "./pages/Footer";
-import Hero from "./pages/Hero";
+import HeroSection from "./pages/Hero";
 import Navbar from "./pages/Navbar";
-import Services from "./pages/Services";
-import Stats from "./pages/Stats";
-import Team from "./pages/Team";
-import Testimonials from "./pages/Testimonial";
-import WhyUs from "./pages/WhyUs";
-
+import ServicesSection from "./pages/Services";
+import WhyChooseUsSection from "./pages/WhyUs";
+import { Toaster } from "sonner";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 function App() {
+  useScrollAnimation();
   return (
-    <div className="bg-white text-gray-900">
+    <div className="bg-gray-100 text-gray-900 font-sans">
+      
+      {/* Toast */}
+      <Toaster position="top-right" richColors />
 
+      {/* Navbar */}
       <Navbar />
 
-      <main>
+      {/* Main Content */}
+      <main className="overflow-hidden">
 
-        <Hero />
-         <Services />
-        <About />
-       
-        <WhyUs />
-        <Team />
-        <Testimonials />
-        <Contact />
+        <HeroSection />
+
+        <ServicesSection />
+
+        <AboutSection />
+
+        <WhyChooseUsSection />
+
+        <ContactSection />
 
       </main>
 
+      {/* Footer */}
       <Footer />
 
     </div>
