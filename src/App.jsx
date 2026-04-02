@@ -7,6 +7,8 @@ import ServicesSection from "./pages/Services";
 import WhyChooseUsSection from "./pages/WhyUs";
 import { Toaster } from "sonner";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import InsuranceCalculator from "./pages/InsuranceCalculator";
+import ConsultationSection from "./pages/ConsultationForm";
 
 function App() {
   useScrollAnimation();
@@ -29,6 +31,10 @@ function App() {
         <AboutSection />
 
         <WhyChooseUsSection />
+
+        <InsuranceCalculator/>
+
+        <ConsultationSection/>
 
         <ContactSection />
 
