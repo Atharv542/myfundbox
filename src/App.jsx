@@ -1,5 +1,4 @@
 import AboutSection from "./pages/About";
-import ContactSection from "./pages/Contact";
 import Footer from "./pages/Footer";
 import HeroSection from "./pages/Hero";
 import Navbar from "./pages/Navbar";
@@ -36,7 +35,7 @@ function App() {
 
         <ConsultationSection/>
 
-        <ContactSection />
+        
 
       </main>
 
