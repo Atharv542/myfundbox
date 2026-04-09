@@ -30,26 +30,32 @@ const calculateAdvanced = (inputs) => {
   const annualIncome = monthlyIncome * 12;
   const growthDecimal = salaryGrowthRate / 100;
   const inflationDecimal = inflationRate / 100;
- let realRate = (1 + growthDecimal) / (1 + inflationDecimal) - 1;
+ // 1. Calculate the Inflation-Adjusted (Real) Rate
+let realRate = (1 + inflationDecimal) / (1 + growthDecimal) - 1;
 
-  let incomeReplacement;
-  let warning = null;
+let incomeReplacement;
+let warning = null;
 
-  if (realRate <= 0) {
-    incomeReplacement = monthlyIncome * 200;
-    warning = "Your salary growth is lower than inflation. Using 20× multiplier as fallback.";
-  } else {
-    const years = 20;
-    //incomeReplacement = annualIncome * ((1 - Math.pow(1 + realRate, -years)) / realRate);
-    incomeReplacement = Math.round(annualIncome / realRate);
-  }
+// 2. Define the duration (Years until retirement)
+// Check if your Excel uses a fixed 20 years or (Retirement Age - Current Age)
+const yearsToRetire = 17; 
+
+if (Math.abs(realRate) < 0.0001) {
+    // Handle edge case where growth equals inflation (Real Rate is 0)
+    incomeReplacement = annualIncome * yearsToRetire;
+} else {
+    // 3. Use the Present Value of an Annuity formula
+    // This matches Excel's =PV(realRate, yearsToRetire, -annualIncome, 0, 1)
+    incomeReplacement = annualIncome * ((1 - Math.pow(1 + realRate, -yearsToRetire)) / realRate) *
+  (1 + realRate);
+}
 
   
  const totalRequired = Math.round(
   incomeReplacement +
   financialGoals +
   liabilities -
-  assets
+  assets      
 );
   const gap = Math.max(0, totalRequired - existingCover);
 
