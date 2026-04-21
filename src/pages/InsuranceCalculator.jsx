@@ -366,7 +366,7 @@ const InsuranceCalculatorSection = () => {
                     tooltip="Expected annual increase in your salary"
                   />
                   <InputWithIcon
-                    icon={TrendingUp} label="Inflation Rate"
+                    icon={TrendingUp} label="Investment Rate"
                     value={advInputs.inflationRate} onChange={(v) => setAdv('inflationRate', v)}
                     prefix="" suffix="%" min={0} max={20} step={0.5} showSlider
                     tooltip="Average rate at which prices increase yearly"
