@@ -272,7 +272,7 @@ const HeroSection = () => {
             {/* Trust pill */}
             <div className="trust-pill afu1" style={{ marginBottom: 26 }}>
               <span className="pulse-dot pulseSoft" />
-              Trusted by 10,000+ families across India
+              Trusted by 1000+ families
             </div>
 
             {/* Heading */}

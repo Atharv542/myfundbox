@@ -8,12 +8,12 @@ const services = [
     title: "Insurance Services",
     description:
       "Comprehensive life, health, and general insurance plans tailored to protect you and your loved ones from life's uncertainties.",
-    features: ["Life Insurance", "Health Insurance", "Term Plans", "Child Plans"],
+    features: ["Life Insurance",  "Term Insurance", "General Insurance"],
     accent: "#16a34a",
     accentLight: "#f0fdf4",
     accentBorder: "#bbf7d0",
     isPremium: true,
-    premiumLabel: "Paid Advisory",
+    premiumLabel: "Advisory",
     cta: { type: "form", label: "Fill the form to get started" },
   },
   {
@@ -21,24 +21,25 @@ const services = [
     title: "Mutual Fund Investment",
     description:
       "Expert-guided mutual fund portfolios designed to maximise returns while managing risk according to your financial goals.",
-    features: ["SIP Planning", "Equity Funds", "Debt Funds", "Tax Saving Funds"],
+    features: ["Goal Based Planning", "Investment Planning", "Retirement Planning"],
     accent: "#0ea5e9",
     accentLight: "#f0f9ff",
     accentBorder: "#bae6fd",
-    isPremium: false,
-    cta: null,
+    isPremium: true,
+    premiumLabel: "Advisory",
+    cta: { type: "form", label: "Fill the form to get started" },
   },
   {
     icon: FileSearch,
     title: "Policy Evaluation",
     description:
       "Get a thorough, unbiased review of your existing insurance policies to ensure you are getting the right coverage at the right price.",
-    features: ["Coverage Analysis", "Premium Audit", "Gap Identification", "Upgrade Guidance"],
+    features: ["Coverage Analysis",  "Gap Identification", "Upgrade Guidance"],
     accent: "#8b5cf6",
     accentLight: "#faf5ff",
     accentBorder: "#ddd6fe",
     isPremium: true,
-    premiumLabel: "Paid Advisory",
+    premiumLabel: "Advisory",
     cta: { type: "form", label: "Fill the form to get started" },
   },
   {
@@ -46,13 +47,13 @@ const services = [
     title: "1-to-1 Consultation",
     description:
       "Personalised financial planning sessions with certified advisors who understand your unique needs and aspirations.",
-    features: ["Goal Planning", "Risk Assessment", "Portfolio Review", "Retirement Planning"],
+    features: ["Investment/Goal Based Planning", "Retirement Planning",  "Retirement Planning"],
     accent: "#16a34a",
     accentLight: "#f0fdf4",
     accentBorder: "#bbf7d0",
     isPremium: true,
     premiumLabel: "Book a Slot",
-    cta: { type: "neetocal", label: "Book a free call" },
+    cta: { type: "neetocal", label: "Book Now" },
   },
 ];
 

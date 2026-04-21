@@ -23,7 +23,7 @@ const Footer = () => {
               style={{ background: 'rgba(22,163,74,0.12)', border: '1px solid rgba(22,163,74,0.25)', color: '#4ade80' }}
             >
               <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 0 3px rgba(34,197,94,0.2)', display: 'inline-block', flexShrink: 0 }} />
-              Trusted by 10,000+ families across India
+              Trusted by 1000+ families
             </div>
 
             {/* Social Icons */}

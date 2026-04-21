@@ -230,7 +230,7 @@ const ConsultationSection = () => {
               Expert Guidance
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-gray-900 mt-3 mb-4">How Can We Help You Today?</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto text-lg">Get a quick paid consultation or receive guided assistance from our experts</p>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">Get a quick consultation or receive guided assistance from our experts</p>
           </div>
 
           <div className={`max-w-4xl mx-auto transition-all duration-300 ${fadeClass}`}>
