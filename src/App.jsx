@@ -2,12 +2,13 @@ import AboutSection from "./pages/About";
 import Footer from "./pages/Footer";
 import HeroSection from "./pages/Hero";
 import Navbar from "./pages/Navbar";
-import ServicesSection from "./pages/Services";
+
 import WhyChooseUsSection from "./pages/WhyUs";
 import { Toaster } from "sonner";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import InsuranceCalculator from "./pages/InsuranceCalculator";
 import ConsultationSection from "./pages/ConsultationForm";
+import ServicesSection from "./pages/Services";
 
 function App() {
   useScrollAnimation();
