@@ -101,7 +101,7 @@ const AboutSection = () => {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-slate-900 leading-tight">
-                    15+ Years
+                    10+ Years
                   </div>
                   <div className="text-xs text-slate-500">BFSI Experience</div>
                 </div>
@@ -118,7 +118,7 @@ const AboutSection = () => {
               Meet Our Founder
             </span>
             <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-1">
-              Anuj Paul
+              Anuj Paul, CFP
             </h3>
             <p
               className="text-base font-semibold mb-5"

@@ -1,6 +1,7 @@
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import logo from '../assets/logo.png'
 const Footer = () => {
+  
   return (
     <footer style={{ background: '#0a0a0a', fontFamily: "'Poppins', sans-serif" }} className="text-white pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-6">
@@ -60,7 +61,7 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {["Home", "Services", "About", "Why Us", "Contact"].map((link) => (
+              {["Home", "Services", "About", "Why Us"].map((link) => (
                 <li key={link} className="flex items-center gap-2">
                   <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#16a34a', display: 'inline-block', flexShrink: 0 }} />
                   <a
@@ -87,11 +88,10 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {[
-                "Life Insurance",
-                "Health Insurance",
+                "Insurance Services",
                 "Mutual Funds",
-                "SIP Planning",
-                "Consultation",
+                "Policy Evaluation",
+                "1:1 Consultation",
               ].map((s) => (
                 <li key={s} className="flex items-center gap-2">
                   <span style={{ width: 4, height: 4, borderRadius: '50%', background: '#15803d', display: 'inline-block', flexShrink: 0 }} />

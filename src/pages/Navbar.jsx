@@ -6,7 +6,7 @@ const navLinks = [
   { label: "Services", id: "services" },
   { label: "About", id: "about" },
   { label: "Why Us", id: "why-us" },
-  { label: "Contact", id: "contact" },
+  
 ];
 
 const navStyles = `
@@ -143,7 +143,7 @@ const Navbar = () => {
                 {link.label}
               </button>
             ))}
-            <button className="cta-btn" onClick={() => handleScrollTo("contact")}>
+            <button className="cta-btn" onClick={() => handleScrollTo("insurance-form")}>
               Book Call
             </button>
           </div>

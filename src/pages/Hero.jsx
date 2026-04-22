@@ -316,7 +316,7 @@ const HeroSection = () => {
               </button>
               <button
                 className="btn-out"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => document.getElementById("insurance-form")?.scrollIntoView({ behavior: "smooth" })}
               >
                 <Phone size={15} /> Book a Consultation
               </button>
